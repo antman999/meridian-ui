@@ -1,5 +1,5 @@
-import React from 'react';
-import './button.css';
+import React from "react";
+import "./button.css";
 
 interface ButtonProps {
   /**
@@ -7,15 +7,15 @@ interface ButtonProps {
    */
   primary?: boolean;
   /**
-   * What background color to use
+   * Need a custom color, provide a value to set which will change the border and text color?
    */
-  backgroundColor?: string;
+  outlineColor?: string;
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
   /**
-   * Button contents
+   * Button Text Content
    */
   label: string;
   /**
@@ -24,25 +24,35 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
+  primary,
+  size,
+  outlineColor,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary ? "button-color--primary" : "button-color--secondary";
+  const buttonClasses = ["button-container", `button-size--${size}`, mode].join(
+    " "
+  );
+  const buttonStyles = {
+    borderColor: outlineColor,
+    color: outlineColor,
+  };
+
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      className={buttonClasses}
+      style={buttonStyles}
       {...props}
     >
       {label}
     </button>
   );
+};
+
+Button.defaultProps = {
+  primary: false,
+  size: "medium",
 };
