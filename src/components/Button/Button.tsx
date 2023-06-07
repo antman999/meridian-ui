@@ -46,6 +46,10 @@ export const Button = ({
   backgroundColor,
   ...props
 }: ButtonProps) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    onClick && onClick();
+  };
+
   const isDisabled = disabled ? "button-disabled" : "";
   const buttonClasses = [
     "button-container",
@@ -65,6 +69,7 @@ export const Button = ({
       className={buttonClasses}
       style={buttonStyles}
       disabled={disabled}
+      onClick={handleClick}
       aria-disabled={disabled}
       {...props}
     >
