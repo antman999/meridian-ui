@@ -45,7 +45,7 @@ export const Small: Story = {
   },
 };
 
-export const Disabled: Strory={
+export const Disabled: Story={
   args: {
     label: 'Disabled Button', 
     disabled: true
