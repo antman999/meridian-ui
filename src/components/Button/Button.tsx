@@ -37,8 +37,8 @@ interface ButtonProps {
 }
 
 export const Button = ({
-  type,
-  size,
+  type = "default",
+  size = "medium",
   textColor,
   label,
   disabled,
@@ -48,8 +48,8 @@ export const Button = ({
 }: ButtonProps) => {
   const isDisabled = disabled ? "button-disabled" : "";
   const buttonClasses = [
-    isDisabled,
     "button-container",
+    isDisabled,
     `button-size--${size}`,
     `button-color--${type}`,
   ].join(" ");
@@ -65,6 +65,7 @@ export const Button = ({
       className={buttonClasses}
       style={buttonStyles}
       disabled={disabled}
+      aria-disabled={disabled}
       {...props}
     >
       {label}
@@ -73,8 +74,6 @@ export const Button = ({
 };
 
 Button.defaultProps = {
-  type: "default",
-  color: "white",
-  size: "medium",
+  onClick: undefined,
   disabled: false,
 };

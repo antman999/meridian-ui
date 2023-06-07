@@ -10,26 +10,55 @@
   display: inline-block;
   line-height: 1;
 }
-.button-color--primary {
-  color: white; 
-  background-color:#f42995
+
+.button-container {
+  transition-duration: .2s;
+  transition: all .2s;
 }
+
+.button-container:not(.button-disabled):hover {
+  transform: translateY(-1px);
+}
+
+.button-container:not(.button-disabled):not(:hover) {
+  transform: translateY(0);
+}
+
+.button-color--primary {
+  color: white;
+  background-color: #f42995;
+}
+
+.button-color--primary:not(.button-disabled):hover {
+  color: white;
+  background-color: #f42995ba;
+}
+
 .button-color--default {
   border: 2px solid #d9d9d9;
 }
 
-.button-color--dashed{
+.button-color--default:not(.button-disabled):hover {
+  color: #f42995;
+  border-color: #f42995;
+}
+
+.button-color--dashed {
   background-color: #fff;
   border-color: #d9d9d9;
   box-shadow: 0 2px 0 rgba(0, 0, 0, .02);
   border-style: dashed;
 }
 
-.button-color--link{
-  
+.button-color--link:hover {
+  color: #f42995;
 }
 
-.button-disabled{
+.button-color--link:not(.button-disabled):active {
+  border: none;
+}
+
+.button-disabled {
   cursor: not-allowed;
   border-color: #d9d9d9;
   color: rgba(0, 0, 0, .25);
@@ -37,15 +66,16 @@
   box-shadow: none;
 }
 
-
 .button-size--small {
   font-size: 14px;
   padding: 12px 20px;
 }
+
 .button-size--medium {
   font-size: 16px;
   padding: 13px 26px;
 }
+
 .button-size--large {
   font-size: 20px;
   padding: 16px 32px;

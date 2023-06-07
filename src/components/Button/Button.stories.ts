@@ -44,3 +44,10 @@ export const Small: Story = {
     label: 'Button',
   },
 };
+
+export const Disabled: Strory={
+  args: {
+    label: 'Disabled Button', 
+    disabled: true
+  }
+}
