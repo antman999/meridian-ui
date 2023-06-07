@@ -6,17 +6,38 @@
   border-width: 2px;
   background-color: transparent;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.88);
   display: inline-block;
   line-height: 1;
 }
 .button-color--primary {
-  color: #e6007a; 
-  border: 2px solid #e6007a
+  color: white; 
+  background-color:#f42995
 }
-.button-color--secondary {
-  color: black;
-  border: 2px solid #000000;
+.button-color--default {
+  border: 2px solid #d9d9d9;
 }
+
+.button-color--dashed{
+  background-color: #fff;
+  border-color: #d9d9d9;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .02);
+  border-style: dashed;
+}
+
+.button-color--link{
+  
+}
+
+.button-disabled{
+  cursor: not-allowed;
+  border-color: #d9d9d9;
+  color: rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, .04);
+  box-shadow: none;
+}
+
+
 .button-size--small {
   font-size: 14px;
   padding: 12px 20px;

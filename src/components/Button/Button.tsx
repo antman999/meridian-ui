@@ -3,13 +3,21 @@ import "./button.css";
 
 interface ButtonProps {
   /**
-   * Is this the principal call to action on the page??
+   * Defines what type of button it should be. Use primary for main CTA's and others for other use cases
    */
-  primary?: boolean;
+  type?: "primary" | "default" | "dashed" | "link";
   /**
-   * Need a custom color, provide a value to set which will change the border and text color?
+   * Need a custom color, provide a value to set the text color to?
    */
-  outlineColor?: string;
+  textColor?: string;
+  /**
+   * Custom border color
+   */
+  borderColor?: string;
+  /**
+   * Provide a custom background color to primary buttons
+   */
+  backgroundColor?: string;
   /**
    * How large should the button be?
    */
@@ -22,22 +30,33 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Boolean value to set button to disabled
+   */
+  disabled?: boolean;
 }
 
 export const Button = ({
-  primary,
+  type,
   size,
-  outlineColor,
+  textColor,
   label,
+  disabled,
+  borderColor,
+  backgroundColor,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? "button-color--primary" : "button-color--secondary";
-  const buttonClasses = ["button-container", `button-size--${size}`, mode].join(
-    " "
-  );
+  const isDisabled = disabled ? "button-disabled" : "";
+  const buttonClasses = [
+    isDisabled,
+    "button-container",
+    `button-size--${size}`,
+    `button-color--${type}`,
+  ].join(" ");
   const buttonStyles = {
-    borderColor: outlineColor,
-    color: outlineColor,
+    borderColor,
+    backgroundColor,
+    color: textColor,
   };
 
   return (
@@ -45,6 +64,7 @@ export const Button = ({
       type="button"
       className={buttonClasses}
       style={buttonStyles}
+      disabled={disabled}
       {...props}
     >
       {label}
@@ -53,6 +73,8 @@ export const Button = ({
 };
 
 Button.defaultProps = {
-  primary: false,
+  type: "default",
+  color: "white",
   size: "medium",
+  disabled: false,
 };
