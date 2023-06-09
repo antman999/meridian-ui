@@ -12,60 +12,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
- .button-container:active {
- transform: scale(0.95);
- }
-
-.button-color--primary {
-  color: white;
-  background-color: #f42995;
-}
-
-.button-color--primary:not(.button-disabled):hover {
-  color: white;
-  background-color: #f01e8ecc;
-}
-
-.button-color--default {
-  border: 2px solid #d9d9d9;
-}
-
-.button-color--default:not(.button-disabled):hover {
-  color: #f42995;
-  border-color: #f42995;
-}
-
-.button-color--dashed {
-  background-color: #fff;
-  border-color: #d9d9d9;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .02);
-  border-style: dashed;
-}
-
-.button-color--dashed:not(.button-disabled):hover {
-  background-color: #fff;
-  border-color: #f42995;
-  color: #f42995;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .02);
-  border-style: dashed;
-}
-
-.button-color--link:hover {
-  color: #f42995;
-}
-
-.button-color--link:not(.button-disabled):active {
-  border: none;
-}
-
-.button-disabled {
-  cursor: not-allowed;
-  border-color: #d9d9d9;
-  color: rgba(0, 0, 0, .25);
-  background-color: rgba(0, 0, 0, .04);
-  box-shadow: none;
-}
-
 .button-size--small {
   font-size: 14px;
   padding: 12px 20px;
